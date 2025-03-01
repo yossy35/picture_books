@@ -35,9 +35,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :introduction
       t.boolean :is_active
-      t.datetime :created_at
-      t.datetime :updated_at
-
       t.timestamps null: false
     end
 
