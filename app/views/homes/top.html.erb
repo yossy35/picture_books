@@ -1,4 +1,32 @@
-<h2>PictureBooksとは</h2>
-子供の成長に伴って、育児に悩むことはありませんか？<br>
-このサイトは、お悩み別に適した絵本を検索できるレビューサイトです。<br>
-子供と一緒に絵本を読んで、育児の悩みを解決しましょう！<br>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h1><strong>PictureBooks</strong>とは</h1>
+        <p>In <i class="fa-solid fa-book"></i><strong>Bookers</strong>,</p>
+        <p>子供の成長に伴って、育児に悩むことはありませんか？</p>
+        <p>このサイトは、お悩み別に適した絵本を検索できるレビューサイトです。</p>
+        <p>子供と一緒に絵本を読んで、育児の悩みを解決しましょう！</p>
+
+        <div class="btn-wrapper col-10 mx-auto">
+        <% if user_signed_in? %>
+          <div class="row">
+            <%= link_to "Log in", user_path(current_user), class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          </div>
+          <div class="row">
+            <%= link_to "Sign up", user_path(current_user), class:"btn btn-success btn-sm btn-block sign_up" %>
+          </div>
+        <% else %>
+          <div class="row">
+            <%= link_to "Log in", new_user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          </div>
+          <div class="row">
+            <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+          </div>
+         <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
