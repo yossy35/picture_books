@@ -29,6 +29,11 @@
               <% end %>
             </li>
             <li class="nav-link text-light">
+              <%= link_to new_book_path, class:"text-light" do %>
+                <i class="fa-solid fa-house"></i> 新規投稿
+              <% end %>
+            </li>
+            <li class="nav-link text-light">
               <%= link_to users_path, class:"text-light" do %>
                 <i class="fa-solid fa-users"></i> 投稿者一覧
               <% end %>
