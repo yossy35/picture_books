@@ -1,8 +1,25 @@
-<h2>新規登録</h2>
-<%= form_with model: @book, url: '/books', method: :post do |f| %> 
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book', class:"btn btn-success" %>
-<% end %>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>新規登録</h2>
+        <%= form_with model: @book, url: '/books', method: :post do |f| %> 
+          <p>ISBN <%= f.text_field :ISBN %></p>
+          <p>表紙</p>
+          
+          <p>絵本タイトル <%= f.text_field :title %></p>
+          <p>著者名<%= f.text_field :author_name %></p>
+            
+          <p>ジャンル</p>
+          <p>レビュー</p>
+            <%= f.text_area :review %><br>
+          <%= f.submit 'Create Book', class:"btn btn-success" %>
+        <% end %>
+
+
+        <%= link_to "Back", books_path %>
+      </div>
+    </div>
+  </div>
+</main>
