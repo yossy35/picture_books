@@ -1,2 +1,36 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+      <div class="col-md-8 offset-md-1">
+        <h2>投稿詳細</h2>
+        <p>投稿日</p>
+        <p>ISBN</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                
+              </td>
+              <td>
+                <%= link_to @book.title %>
+              </td>
+              <td>
+                <%= @book.author_name %>
+              </td>
+              <td>
+                ジャンル
+              </td>
+              <td>
+                <%= @book.body %>
+              </td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success edit_book_160598" %>
+                <% end %>
+              </td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to "Destroy", book_path(@book.id), class:"btn btn-sm btn-danger destroy_book_160598", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
