@@ -1,33 +1,38 @@
       <div class="col-md-8 offset-md-1">
         <h2>投稿詳細</h2>
         <p>投稿日 <%= @book.created_at.strftime('%Y/%m/%d') %></p>
+        <p>投稿者 <%= link_to @book.user.name, user_path(@book.user.id) %></p>
         <p>ISBN <%= @book.isbn %></p>
         <table class="table">
           <tbody>
             <tr>
               <td>
-                表紙画像
+                <% if @book.image.attached? %>
+                  <%= image_tag @book.image, size: "100x100" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "100x100" %>
+                <% end %>
               </td>
               <td>
-                <%= link_to @book.title %>
+                <%= @book.title %>
               </td>
               <td>
-                ×<%= @book.author_name %>
+                <%= @book.author_name %>
               </td>
               <td>
                 ジャンル
               </td>
               <td>
-                ×<% @book.reviews %>
+                <%= @book.review %>
               </td>
               <td>
                 <% if @book.user == current_user %>
-                  <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success edit_book_160598" %>
+                  <%= link_to "編集", edit_book_path(@book.id), class:"btn btn-sm btn-success edit_book_160598" %>
                 <% end %>
               </td>
               <td>
                 <% if @book.user == current_user %>
-                  <%= link_to "Destroy", book_path(@book.id), class:"btn btn-sm btn-danger destroy_book_160598", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                  <%= link_to "削除", book_path(@book.id), class:"btn btn-sm btn-danger destroy_book_160598", method: :delete, "data-confirm" => "本当に削除しますか？" %>
                 <% end %>
               </td>
             </tr>

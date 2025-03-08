@@ -1,2 +1,22 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>投稿編集</h1>
+        <%= form_with model: @book do |f| %>
+          <p>ISBN <%= f.text_field :isbn %></p>
+          <p>表紙</p>
+          <p>絵本タイトル <%= f.text_field :title, class:"form-control book_title" %></p>
+          <p>著者名 <%= f.text_field :author_name %></p>
+          <p>ジャンル</p>
+          <p>レビュー</p>
+            <%= f.text_area :review, class:"form-control book_review" %><br>
+          <%= f.submit'更新', class:"btn btn-success" %><br><br>
+        <% end %>
+        <%= link_to "戻る", book_path(@book.id) %> |
+        <%= link_to "マイページ", users_mypage_path %>
+      </div>
+    </div>
+  </div>
+</main>

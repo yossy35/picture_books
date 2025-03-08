@@ -52,13 +52,14 @@ ActiveRecord::Schema.define(version: 2025_02_26_224117) do
     t.integer "isbn"
     t.string "title"
     t.string "author_name"
+    t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "review_id"
+    t.integer "book_id"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -66,14 +67,6 @@ ActiveRecord::Schema.define(version: 2025_02_26_224117) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-    t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
