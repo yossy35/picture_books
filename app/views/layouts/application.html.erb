@@ -24,7 +24,7 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-link text-light">
-              <%= link_to user_path(current_user), class:"text-light" do %>
+              <%= link_to users_mypage_path, class:"text-light" do %>
                 <i class="fa-solid fa-house"></i> マイページ
               <% end %>
             </li>
