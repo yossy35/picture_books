@@ -3,22 +3,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <%= render 'book', book: @book, user: @user %><div class="col-md-8 offset-md-1">
+        <%= render 'books/book', book: @book, user: @user %>
       </div>
       <div class="col-md-8 offset-md-1">
-        <h3>マイページ</h3>
+        <h4>マイページ <i class="fa-solid fa-book-quran"></i> 私の投稿履歴</h3>
         <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th><%= image_tag @user.get_profile_image(100,100) %></th>
-              <th><%= @user.name %></th>
-              <th></th>
-              <th></th>
-              <th><p><%= link_to "編集", edit_user_path(@user.id) %></p></th>
-            <tr>
-          </thead>
-          <h4>わたしの投稿履歴</h4>
-          <h2>Books</h2>
           <thead>
             <tr>
               <th>表紙</th>
@@ -28,30 +17,33 @@
               <th>レビュー</th>
             </tr>
           </thead>
-        
-  <% @books.each do |book| %>
-    <tr>
-      <td>
-        <% if book.image.attached? %>
-          <%= image_tag book.image, size: "100x100" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "100x100" %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to book.title, book_path(book.id) %>
-      </td>
-      <td>
-        <%= book.author_name %>
-      </td>
-      <td>
-        genre
-      </td>
-      <td>
-        <%= book.review %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-</div>
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <% if book.image.attached? %>
+                  <%= image_tag book.image, size: "100x100" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "100x100" %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book.title, book_path(book.id) %>
+              </td>
+              <td>
+                <%= book.author_name %>
+              </td>
+              <td>
+                genre
+              </td>
+              <td>
+                <%= book.review %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

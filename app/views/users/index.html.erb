@@ -1,2 +1,37 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'books/book', book: @book, user: @user %>
+      </div>
+      <div class="col-md-8 offset-md-1">
+        <h4>投稿者プロフィール</h4>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>プロフィール画像</th>
+              <th>投稿者</th>
+              <th>自己紹介</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= image_tag user.get_profile_image(100,100) %>
+              </td>
+              <td>
+                <%= link_to user.name, user_path(user.id) %>
+              </td>
+              <td>
+                <%= user.introduction %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
