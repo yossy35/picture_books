@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_scope :user do
+    post "/public/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
 
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
+
   devise_for :users, controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions'
@@ -13,9 +17,9 @@ Rails.application.routes.draw do
     resources :users, only: [:destroy]
   end
  
-
   root to: "homes#top"
 
+  
 
   get 'users/mypage', to: 'users#mypage'
     
