@@ -9,8 +9,15 @@ Rails.application.routes.draw do
     resources :users, only: [:destroy]
   end
  
-  devise_for :users
-  root to: "homes#top"
+  scope module: :public do
+    devise_for :users
+    root to: "homes#top"
+    get 'homes/about', to: 'homes#about', as: :about
+    
+
+
+    resources :users
+  end
 
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
@@ -21,7 +28,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'registrations/new'
   get 'registrations/create'
-  resources :users, :books
+  resources :books
   post 'books' => 'books#create' 
 
   get '/users/:id/confirm' => 'users#confirm', as: 'confirm'
