@@ -20,7 +20,7 @@
           <p>ジャンル</p>
           <p>レビュー</p>
             <%= f.text_area :review, class:"form-control book_review" %><br>
-          <%= f.submit'更新', class:"btn btn-success" %> <br><br>
+          <%= f.submit'更新', class:"btn btn-success" %><br><br>
         <% end %>
         <%= link_to "削除", book_path(@book.id), class:"btn btn-sm btn-danger destroy_book_160598", method: :delete, "data-confirm" => "本当に削除しますか？" %><br><br>
         <%= link_to "戻る", book_path(@book.id) %> |
