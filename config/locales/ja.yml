@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      book: 絵本
+    attributes:
+      user: 
+        name: 名前
+        email: Eメール
+        password: パスワード
+        introduction: 自己紹介文
+      book:
+        title: 絵本タイトル
+        author_name: 著者名
+        review: レビュー文
+  devise:
+    sessions:
+      user:
+        signed_in: ログインしました。
+        signed_out: サインアウトしました。
+  errors:
+    messages:
+        not_saved: エラーが発生したため %{resource} は保存されませんでした
+        one: 
+#ja.errors.messages.not_saved
