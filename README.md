@@ -35,3 +35,4 @@
 なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
 フリー素材として以下を使用
   - いらすとや（https://www.irasutoya.com/）
+  - pixbay(https://pixabay.com/ja/)
