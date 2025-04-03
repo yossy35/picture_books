@@ -72,8 +72,9 @@
     </nav>
   </header>
   <main class="container">
-    <%= render 'users/search' %>
-
+    <div class="d-flex justify-content-center mb-2">
+      <%= render 'users/search' %>
+    </div>
     <%= yield %>
   </main>
   <footer>
