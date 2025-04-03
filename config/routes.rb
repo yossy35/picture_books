@@ -19,7 +19,7 @@ Rails.application.routes.draw do
  
   root to: "homes#top"
 
-  
+  get "search" => "searches#search"
 
   get 'users/mypage', to: 'users#mypage'
     
