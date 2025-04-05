@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   }
 
   devise_for :users, controllers: {
-    registrations: 'public/registrations',
-    sessions: 'public/sessions'
+    registrations: 'devise/registrations',
+    sessions: 'devise/sessions'
   }
 
   namespace :admin do
@@ -17,17 +17,16 @@ Rails.application.routes.draw do
     resources :users, only: [:destroy]
   end
  
-  root to: "homes#top"
+  scope module: :public do
+    root to: "homes#top"
+    get "search" => "searches#search"
+    get 'users/mypage', to: 'users#mypage'
+    resources :users, :books
+    post 'books' => 'books#create' 
+    get '/users/:id/confirm' => 'users#confirm', as: 'confirm'
+    patch '/users/:id/quit' => 'users#quit', as: 'quit'
+  end
 
   
-
-  get 'users/mypage', to: 'users#mypage'
-    
-
-  resources :users, :books
-  post 'books' => 'books#create' 
-
-  get '/users/:id/confirm' => 'users#confirm', as: 'confirm'
-  patch '/users/:id/quit' => 'users#quit', as: 'quit'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

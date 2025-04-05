@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Public::BooksController < ApplicationController
   def new
     @book = Book.new
   end
