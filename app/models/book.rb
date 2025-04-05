@@ -12,7 +12,7 @@ class Book < ApplicationRecord
     if method == 'perfect'
       Book.where(title: content)
     else
-      Book.where('name LIKE ?', '%' + content + '%')
+      Book.where('title LIKE ?', '%' + content + '%')
     end
   end
 
