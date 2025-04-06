@@ -19,6 +19,16 @@
           <p>著者名<%= f.text_field :author_name %></p>
             
           <p>ジャンル</p>
+            <div class="check_box">
+              <%= form.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+                <div class='form-check'>
+                  <%= genre.label do %>
+                    <%= genre.check_box %>
+                    <%= genre.text %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <p>レビュー</p>
             <%= f.text_area :review %><br>
           <%= f.submit 'Create Book', class:"btn btn-success" %>
