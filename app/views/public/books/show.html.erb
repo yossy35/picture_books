@@ -20,7 +20,7 @@
                 <%= @book.author_name %>
               </td>
               <td>
-                ジャンル
+                ジャンル<p><%= link_to "#{@book.comments.count} コメント", book_path(@book.id) %></p>
               </td>
               <td>
                 <%= @book.review %>
@@ -34,9 +34,10 @@
                 <% if @book.user == current_user %>
                   <%= link_to "削除", book_path(@book.id), class:"btn btn-sm btn-danger destroy_book_160598", method: :delete, "data-confirm" => "本当に削除しますか？" %>
                 <% end %>
-              </td>
-              <div> #
-                <p>コメント件数：<%= @book.comments.count %></p>
+              </td>              
+            </tr>
+            <div> #
+              <p>コメント件数：<%= @book.comments.count %></p>
                 <% @book.comments.each do |comment| %>
                   <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
                   <%= comment.user.name %>
@@ -49,7 +50,6 @@
                   <%= f.submit "送信する" %>
                 <% end %>
               </div> #
-            </tr>
           </tbody>
         </table>
       </div>
