@@ -20,10 +20,13 @@
                 <%= @book.author_name %>
               </td>
               <td>
-                ジャンル<p><%= link_to "#{@book.comments.count} コメント", book_path(@book.id) %></p>
+                ジャンル
               </td>
               <td>
                 <%= @book.review %>
+              </td>
+              <td>
+                <%= link_to "#{@book.comments.count} コメント", book_path(@book.id) %>
               </td>
               <td>
                 <% if @book.user == current_user %>
@@ -36,20 +39,21 @@
                 <% end %>
               </td>              
             </tr>
-            <div> #
-              <p>コメント件数：<%= @book.comments.count %></p>
-                <% @book.comments.each do |comment| %>
-                  <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
-                  <%= comment.user.name %>
-                  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-                <% end %>
-              </div>
-              <div>
-                <%= form_with model: [@book, @comment] do |f| %>
-                  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-                  <%= f.submit "送信する" %>
-                <% end %>
-              </div> #
           </tbody>
         </table>
+        
+          <p>コメント件数：<%= @book.comments.count %></p>
+            <% @book.comments.each do |comment| %>
+              <%= image_tag comment.user.get_profile_image(50,50) %>
+              <%= comment.user.name %>
+              <%= comment.created_at.strftime('%Y/%m/%d') %>
+              <%= comment.comment %>
+            <% end %><br>
+          
+          
+            <%= form_with model: [@book, @comment] do |f| %>
+              <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+              <%= f.submit "送信する" %>
+            <% end %>
+          
       </div>
