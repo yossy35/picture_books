@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "search" => "searches#search"
     get 'users/mypage', to: 'users#mypage'
-    resources :users, :books
+    resources :books do
+      resources :comments,only: [:create]
+    end
+    resources :users
     post 'books' => 'books#create' 
     get '/users/:id/confirm' => 'users#confirm', as: 'confirm'
     patch '/users/:id/quit' => 'users#quit', as: 'quit'
