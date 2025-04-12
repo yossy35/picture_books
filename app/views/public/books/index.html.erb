@@ -16,6 +16,7 @@
               <th>著者名</th>
               <th>ジャンル</th>
               <th>レビュー</th>
+              <th>評価</th>
               <th>コメント件数</th>
             </tr>
           </thead>
@@ -43,6 +44,9 @@
                 </td>
                 <td>
                   <%= link_to book.review, book_path(book.id) %>
+                </td>
+                <td>
+                  <%= render 'output_star', book: book %>
                 </td>
                 <td>
                   <%= link_to "#{book.comments.count} コメント", book_path(book.id) %>
