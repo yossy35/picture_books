@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'users/mypage', to: 'users#mypage'
     resources :books do
-      resources :comments,only: [:create]
+      resources :comments,only: [:create, :destroy]
     end
     resources :users
     post 'books' => 'books#create' 
