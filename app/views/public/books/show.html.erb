@@ -26,6 +26,9 @@
                 <%= @book.review %>
               </td>
               <td>
+                <%= render 'output_star', book: @book %>
+              </td>
+              <td>
                 <%= link_to "#{@book.comments.count} コメント", book_path(@book.id) %>
               </td>
               <td>
