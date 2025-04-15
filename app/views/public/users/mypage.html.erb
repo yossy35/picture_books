@@ -15,6 +15,7 @@
               <th>著者名</th>
               <th>ジャンル</th>
               <th>レビュー</th>
+              <th>評価</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +39,9 @@
               </td>
               <td>
                 <%= book.review %>
+              </td>
+              <td>
+                <%= render 'public/books/output_star', book: book %>
               </td>
             </tr>
           <% end %>

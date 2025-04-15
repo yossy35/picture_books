@@ -19,6 +19,7 @@
       <th>著者名</th>
       <th>ジャンル</th>
       <th>レビュー</th>
+      <th>評価</th>
     </tr>
   </thead>
   <tbody>
@@ -42,6 +43,9 @@
       </td>
       <td>
         <%= link_to book.review, book_path(book.id) %>
+      </td>
+      <td>
+        <%= render 'public/books/output_star', book: book %>
       </td>
     </tr>
   <% end %>

@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author_name, presence: true
   validates :review, presence: true
+  validates :star, presence: true
 
   def self.search_for(content, method)
     if method == 'perfect'

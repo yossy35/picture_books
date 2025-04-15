@@ -21,8 +21,8 @@
           <p>ジャンル</p>
           <p>レビュー</p>
             <%= f.text_area :review %><br>
-
-          <div id="post_raty"></div>
+          評価
+            <div id="post_raty"></div>
             <script>
               var elem = document.querySelector('#post_raty');
               var opt = {  
@@ -31,11 +31,9 @@
                 scoreName: 'book[star]',
               };
               raty(elem,opt);
-            </script>
+            </script><br>
           <%= f.submit 'Create Book', class:"btn btn-success" %>
         <% end %>
-
-
         <%= link_to "Back", books_path %>
       </div>
     </div>
