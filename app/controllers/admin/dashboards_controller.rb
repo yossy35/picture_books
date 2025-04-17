@@ -5,4 +5,10 @@ class Admin::DashboardsController < ApplicationController
         @users = User.all
         @books = Book.all
     end
+# users_controllerから追加↓　ルーティング要確認
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to admin_dashboards_path, notice: 'ユーザーを削除しました。'
+  end
 end
