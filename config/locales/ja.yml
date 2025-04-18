@@ -19,6 +19,8 @@ ja:
       user:
         signed_in: ログインしました。
         signed_out: サインアウトしました。
+      admin:
+        signed_in: 管理者でログインしました。
   errors:
     messages:
         not_saved: エラーが発生したため %{resource} は保存されませんでした
