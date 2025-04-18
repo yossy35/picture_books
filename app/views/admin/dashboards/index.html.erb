@@ -1,17 +1,16 @@
 <main>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+  </div>
   <p id="notice"></p>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <h4>全ユーザー一覧</h4>
-        <ul>
-          <% @users.each do |user| %>
-            <li>
-              <%= user.name %> - <%= user.email %>
-              <%= link_to '削除', admin_user_path(user.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-            </li>
-          <% end %>
-        </ul>
+        <%= render 'admin/users/index', users: @users %>
       </div>
 
       <div class="col-md-9">
@@ -54,10 +53,13 @@
                 <%= book.review %>
               </td>
               <td>
-                <%= link_to '削除', admin_dashboards_path, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+                <%= link_to '削除', admin_book_path(book.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
               </td>
             </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+    </div>
+  </div>
+</main>
