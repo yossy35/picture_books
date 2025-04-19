@@ -20,7 +20,9 @@
                 <%= @book.author_name %>
               </td>
               <td>
-                ジャンル
+                <% @book.genres.each do |genre| %>
+                  <%= genre.name %>
+                <% end %>
               </td>
               <td>
                 <%= @book.review %>

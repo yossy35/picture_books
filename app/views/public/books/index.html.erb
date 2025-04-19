@@ -40,7 +40,9 @@
                   <%= book.author_name %>
                 </td>
                 <td>
-                  genre
+                  <% book.genres.each do |genre| %>
+                    <%= genre.name %>
+                  <% end %>
                 </td>
                 <td>
                   <%= link_to book.review, book_path(book.id) %>
