@@ -12,4 +12,7 @@ class Public::SearchesController < ApplicationController
       @records = Book.search_for(@content, @method)
     end
   end
+
+  def genre_seacrh
+  end
 end
