@@ -36,7 +36,9 @@
               </td>
               <td>
                 <% book.genres.each do |genre| %>
-                  <%= genre.name %>
+                  <ul>
+                    <li><%= genre.name %></li>
+                  </ul>
                 <% end %>
               </td>
               <td>

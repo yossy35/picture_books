@@ -1,3 +1,4 @@
+<h3>ジャンル"<%= @word %>"の検索結果</h3>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -18,7 +19,9 @@
         <td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
         <td><%= book.review %></td>
         <td>
-          
+          <% book.genres.each do |genre| %>
+            <%= genre.name %>
+          <% end %>
         </td>
       </tr>
     <% end %>
