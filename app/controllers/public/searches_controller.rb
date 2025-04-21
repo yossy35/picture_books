@@ -13,6 +13,13 @@ class Public::SearchesController < ApplicationController
     end
   end
 
-  def genre_seacrh
+  def genre_search
+    @books = params[:genre_id].present? ? Genre.find(params[:genre_id]).books : Book.all
+  end
+
+  private
+  
+  def book_params
+    params.require(:book).permit(:isbn, :image, :title, :author_name, :review, :star,genre_ids: [])
   end
 end

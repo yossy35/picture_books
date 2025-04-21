@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "search" => "searches#search"
+    get "genresearch" => "searches#genre_search"
     get 'users/mypage', to: 'users#mypage'
     resources :books do
       resources :comments,only: [:create, :destroy]
