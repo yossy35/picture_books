@@ -21,7 +21,9 @@
               </td>
               <td>
                 <% @book.genres.each do |genre| %>
-                  <%= genre.name %>
+                  <ul class="list-unstyled">
+                    <li>📚<%= genre.name %></li>
+                  </ul>
                 <% end %>
               </td>
               <td>
