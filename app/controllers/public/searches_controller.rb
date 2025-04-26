@@ -12,4 +12,15 @@ class Public::SearchesController < ApplicationController
       @records = Book.search_for(@content, @method)
     end
   end
+
+  def genre_search
+    if params[:genre_id].present?
+      genre = Genre.find(params[:genre_id])
+      @books = genre.books
+      @word = genre.name
+    else
+      @books = Book.all
+    end
+  end
+  
 end
