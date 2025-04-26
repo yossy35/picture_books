@@ -19,7 +19,7 @@
           <thead>
             <tr>
               <th>投稿者</th>
-              <th>絵本表紙</th>
+              <th>表紙</th>
               <th>タイトル</th>
               <th>著者名</th>
               <th>ジャンル</th>
@@ -47,7 +47,11 @@
                 <%= book.author_name %>
               </td>
               <td>
-                genre
+                <% book.genres.each do |genre| %>
+                  <ul class="list-unstyled">
+                    <li><%= genre.name %></li>
+                  </ul>
+                <% end %>
               </td>
               <td>
                 <%= book.review %>
