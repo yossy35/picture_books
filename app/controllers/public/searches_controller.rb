@@ -14,9 +14,13 @@ class Public::SearchesController < ApplicationController
   end
 
   def genre_search
-    @books = params[:genre_id].present? ? Genre.find(params[:genre_id]).books : Book.all
-    @word = params[:name]
+    if params[:genre_id].present?
+      genre = Genre.find(params[:genre_id])
+      @books = genre.books
+      @word = genre.name
+    else
+      @books = Book.all
+    end
   end
-
-
+  
 end

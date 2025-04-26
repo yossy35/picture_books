@@ -20,8 +20,13 @@ Rails.application.routes.draw do
  
   scope module: :public do
     root to: "homes#top"
+    resources :searches, only: [] do
+      collection do
+        get :genre_search
+      end
+    end
     get "search" => "searches#search"
-    get "genresearch" => "searches#genre_search"
+    #get "genresearch/:id" => "searches#genre_search"
     get 'users/mypage', to: 'users#mypage'
     resources :books do
       resources :comments,only: [:create, :destroy]

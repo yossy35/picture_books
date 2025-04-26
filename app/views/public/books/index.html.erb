@@ -42,7 +42,7 @@
                 <td>
                   <% book.genres.each do |genre| %>
                     <ul class="list-unstyled">
-                      <li>📚<%= genre.name %></li>
+                      <li>📚<%= link_to genre.name, genre_search_searches_path(genre_id: genre.id) %></li>
                     </ul>
                   <% end %>
                 </td>
