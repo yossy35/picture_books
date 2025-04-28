@@ -7,10 +7,7 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
-  devise_for :users, controllers: {
-    registrations: 'devise/registrations',
-    sessions: 'devise/sessions'
-  }
+
 
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
@@ -19,6 +16,7 @@ Rails.application.routes.draw do
   end
  
   scope module: :public do
+    devise_for :users
     root to: "homes#top"
     resources :searches, only: [] do
       collection do
