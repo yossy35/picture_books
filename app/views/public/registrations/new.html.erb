@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 ms-sm-auto text-center shadow-lg rounded px-0 my-5">
-      <h5> class="text-dark bg-light py-4 mb-0">新規登録</h5>
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">新規登録</h5>
       <div class="form-body p-4">
+
         <div class="mx-auto text-center">
           <p>名前・メールアドレス・パスワードを入力してください。</h2>
         </div>
@@ -24,37 +25,36 @@
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
             </div>
-            <%= f.text_field :name, autofocus: true, placeholder: "ユーザー名", class: "form-control" % %>
+            <%= f.text_field :name, autofocus: true, placeholder: "ユーザー名", class: "form-control" %>
           </div>
-          <br>
+          
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" aria-hidden="true"><i class="fas fa-lock"></i></span>
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-at"></i></span>
             </div>
             <%= f.email_field :email, class: "form-control",  placeholder: "メールアドレス" %>
           </div>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-lock"></i></span>
+            </div>
+            <%= f.password_field :password, placeholder: "パスワード(#{@minimum_password_length}文字以上)", class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
+            </div>
+            <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <%= f.submit "サインアップ", class: "btn btn-block btn-info mt-5" %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>
