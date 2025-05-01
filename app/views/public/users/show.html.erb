@@ -1,57 +1,64 @@
-<div class="col-md-8 offset-md-1">
-<h3>ユーザーのプロフィール</h3>
-<table class="table table-hover table-inverse">
-  <tbody>
-    <tr>
-      <td><%= image_tag @user.get_profile_image(100,100) %></td>
-      <td><%= @user.name %></td>
-      <td><%= @user.introduction %></td>
-    <tr>
-  <tbody>
-</table>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h3>ユーザーのプロフィール</h3>
+        <table class="table table-hover table-inverse">
+          <tbody>
+            <tr>
+              <td><%= image_tag @user.get_profile_image(100,100) %></td>
+              <td><%= @user.name %></td>
+              <td><%= @user.introduction %></td>
+            <tr>
+          <tbody>
+        </table>
 
-<h3>投稿履歴</h3>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th>表紙</th>
-      <th>タイトル</th>
-      <th>著者名</th>
-      <th>ジャンル</th>
-      <th>レビュー</th>
-      <th>評価</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @books.each do |book| %>
-    <tr>
-      <td>
-        <% if book.image.attached? %>
-          <%= image_tag book.image, size: "100x100" %>
-        <% else %>
-          <%= image_tag 'no_image.png', size: "100x100" %>
-        <% end %>
-      </td>
-      <td>
-        <%= book.title %>
-      </td>
-      <td>
-        <%= book.author_name %>
-      </td>
-      <td>
-        <% book.genres.each do |genre| %>
-          <ul class="list-unstyled">
-            <li>📚<%= genre.name %></li>
-          </ul>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to book.review, book_path(book.id) %>
-      </td>
-      <td>
-        <%= render 'public/books/output_star', book: book %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+        <h3>投稿履歴</h3>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>表紙</th>
+              <th>タイトル</th>
+              <th>著者名</th>
+              <th>ジャンル</th>
+              <th>レビュー</th>
+              <th>評価</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <% if book.image.attached? %>
+                  <%= image_tag book.image, size: "100x100" %>
+                <% else %>
+                  <%= image_tag 'no_image.png', size: "100x100" %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.title %>
+              </td>
+              <td>
+                <%= book.author_name %>
+              </td>
+              <td>
+                <% book.genres.each do |genre| %>
+                  <ul class="list-unstyled">
+                    <li>📚<%= genre.name %></li>
+                  </ul>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book.review, book_path(book.id) %>
+              </td>
+              <td>
+                <%= render 'public/books/output_star', book: book %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
