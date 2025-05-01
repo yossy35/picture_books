@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h2>新規登録</h2>
+        <h2>新規投稿</h2>
         <% if @book.errors.any? %>
           <%= @book.errors.count %>件のエラーが発生しました
           <ul>
@@ -12,6 +12,7 @@
             <% end %>
           </ul>
         <% end %>
+
         <%= form_with model: @book, url: '/books', method: :post do |f| %> 
           <p>ISBN <%= f.text_field :isbn %></p>
           <p>表紙 <%= f.file_field :image,accept: "image/*" %></p>
@@ -19,9 +20,14 @@
           <p>著者名<%= f.text_field :author_name %></p>
             
           <p>ジャンル</p>
-          
-            <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name , include_hidden: false %>
-          
+          <ul class="list-unstyled">
+            <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name , include_hidden: false do |b| %>
+              <li class="form-check">
+                <%= b.check_box(class: "form-check-input") %>
+                <%= b.label(class: "form-check-label") %> 
+              </li>
+            <% end %>
+          </ul>
 
           <p>レビュー</p>
             <%= f.text_area :review %><br>
