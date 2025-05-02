@@ -23,7 +23,6 @@
               <th>表紙</th>
               <th>タイトル</th>
               <th>著者名</th>
-              <th>ジャンル</th>
               <th>レビュー</th>
               <th></th>
             </tr>
@@ -46,13 +45,6 @@
               </td>
               <td>
                 <%= book.author_name %>
-              </td>
-              <td>
-                <% book.genres.each do |genre| %>
-                  <ul class="list-unstyled">
-                    <li><%= genre.name %></li>
-                  </ul>
-                <% end %>
               </td>
               <td>
                 <%= book.review %>
