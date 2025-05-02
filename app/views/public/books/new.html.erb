@@ -18,19 +18,17 @@
           <p>表紙 <%= f.file_field :image,accept: "image/*" %></p>
           <p>絵本タイトル <%= f.text_field :title %></p>
           <p>著者名<%= f.text_field :author_name %></p>
-            
           <p>ジャンル</p>
-          <ul class="list-unstyled">
-            <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name , include_hidden: false do |b| %>
-              <li class="form-check">
-                <%= b.check_box(class: "form-check-input") %>
-                <%= b.label(class: "form-check-label") %> 
-              </li>
-            <% end %>
-          </ul>
-
+            <ul class="list-unstyled">
+              <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name , include_hidden: false do |b| %>
+                <li class="form-check">
+                  <%= b.check_box(class: "form-check-input") %>
+                  <%= b.label(class: "form-check-label") %> 
+                </li>
+              <% end %>
+            </ul>
           <p>レビュー</p>
-            <%= f.text_area :review %><br>
+            <%= f.text_area :review, class:"form-control book_review" %><br>
           評価
             <div id="post_raty"></div>
             <script>
