@@ -22,4 +22,17 @@ describe "レビュー一覧のテスト" do
       expect(page).to have_link book.comments.count
     end
   end
+  context 'リンクの遷移先の確認' do
+    it '投稿者の遷移先はユーザーの詳細画面か' do
+      show_link = find_all('a')[1]
+      show_link.click
+      expect(current_path).to eq('/users/' + user.id)
+    end
+    it 'ジャンルの遷移先はジャンルの検索結果か' do
+    end
+    it 'レビューの遷移先は投稿の詳細画面か' do
+      show_link = find_all('a')[1]
+      show_link.click
+      expect(current_path).to eq('/books/' + book.id)
+  end
 end
