@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'レビュー一覧と新規投稿のテスト' do
-  let!(:book) { create(:book, user.name:'user1', image: File.new("#{Rails.root}/spec/factories/black_book.png"), title:'hoge', author_name:'author1', genre.name:genre.id) }
+  let!(:book) { create(:book, user.name:'user1', image: File.new("#{Rails.root}/spec/factories/black_book.png"), title:'hoge', author_name:'author1', genre.name:genre.id(1), review:'hoge', output_star:, comments.count:) }
   describe 'レビュー一覧のテスト'do
     before do 
       visit books_path
@@ -31,16 +31,19 @@ describe 'レビュー一覧と新規投稿のテスト' do
         expect(current_path).to eq('/users/' + user.id)
       end
       it 'ジャンルの遷移先はジャンルの検索結果か' do
+        searches_link = find_all('a')[1]
+        searches_link.click
+        expect(current_path).to eq('/searches/genre_search?genre.id')
       end
       it 'レビューの遷移先は投稿の詳細画面か' do
         show_link = find_all('a')[1]
         show_link.click
         expect(current_path).to eq('/books/' + book.id)
       end
-      it 'コメントの遷移先は画面か' do
+      it 'コメントの遷移先は投稿の詳細画面か' do
         show_link = find_all('a')[1]
         show_link.click
-        expect(current_path).to eq('')
+        expect(current_path).to eq('/books/' + book.id)
       end
     end
   end
