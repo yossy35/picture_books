@@ -14,36 +14,28 @@ require 'rails_helper'
     context '表示の確認' do
       it '投稿したタイトルと投稿者名が表示されているかの確認' do
         expect(page).to have_content book.user.name
-        # expect(page).to have_link user.name
-        # expect(page).to have_selector("img")
+        expect(page).to have_link book.user.name
         expect(page).to have_content book.title
-        # expect(page).to have_content author_name
-        # expect(page).to have_content genre.name
-        # expect(page).to have_link book.genre
-        # expect(page).to have_content book.review
-        # expect(page).to have_link book.review
-        # expect(page).to have_selector output_star
-        # expect(page).to have_content book.comments.count
-        # expect(page).to have_link book.comments.count
       end
     end
-    xcontext 'リンクの遷移先の確認' do
-      it '投稿者の遷移先はユーザーの詳細画面か' do
+    context 'リンクの遷移先の確認' do
+      xit '投稿者の遷移先はユーザーの詳細画面か' do
         show_link = find_all('a')[1]
         show_link.click
         expect(current_path).to eq('/users/' + user.id)
       end
-      it 'ジャンルの遷移先はジャンルの検索結果か' do
+      xit 'ジャンルの遷移先はジャンルの検索結果か' do
         searches_link = find_all('a')[1]
         searches_link.click
         expect(current_path).to eq('/searches/genre_search?genre.id')
       end
       it 'レビューの遷移先は投稿の詳細画面か' do
-        show_link = find_all('a')[1]
+        show_link = find_all('a')[13]
+        byebug
         show_link.click
-        expect(current_path).to eq('/books/' + book.id)
+        expect(current_path).to eq('/books/' + book.id.to_s)
       end
-      it 'コメントの遷移先は投稿の詳細画面か' do
+      xit 'コメントの遷移先は投稿の詳細画面か' do
         show_link = find_all('a')[1]
         show_link.click
         expect(current_path).to eq('/books/' + book.id)
