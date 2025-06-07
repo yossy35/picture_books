@@ -14,7 +14,7 @@ class Public::BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.all.order(created_at: :desc)
     @user = current_user
   end
 
