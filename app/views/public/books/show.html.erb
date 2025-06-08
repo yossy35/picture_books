@@ -78,7 +78,7 @@
         </table>
           
             <%= form_with model: [@book, @comment] do |f| %>
-              <%= f.text_area :comment, rows: '3', placeholder: "コメントを入力", class: "w-100 comment-textarea"  %>
+              <%= f.text_area :comment, rows: '3', placeholder: "コメントすることができます(１文字以上の入力が必要です)", class: "w-100 comment-textarea"  %>
               <%= f.submit "送信する" %>
             <% end %>
       </div>
