@@ -67,7 +67,7 @@
                 </td>
                 <td>
                   <% if comment.user == current_user %>
-                    <%= link_to book_comment_path(comment.book, comment), class:"btn btn-sm btn-danger", method: :delete do %>
+                    <%= link_to book_comment_path(comment.book, comment), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" do %>
                       <i class="fa-solid fa-trash-can"></i>
                     <% end %>  
                   <% end %>
@@ -78,7 +78,7 @@
         </table>
           
             <%= form_with model: [@book, @comment] do |f| %>
-              <%= f.text_area :comment, rows: '3', placeholder: "コメントを入力", class: "w-100 comment-textarea"  %>
+              <%= f.text_area :comment, rows: '3', placeholder: "コメントすることができます(１文字以上の入力が必要です)", class: "w-100 comment-textarea"  %>
               <%= f.submit "送信する" %>
             <% end %>
       </div>
