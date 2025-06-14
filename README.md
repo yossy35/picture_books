@@ -20,8 +20,8 @@
 * 親が頭を抱える子供の行動がテーマになっている絵本を検索したいとき
 * 子供たちの日々の言動や変化にマッチする絵本を検索したいとき
 ​
-## 設計書
-後ほど作成予定
+## AWS構成図
+![Image](https://github.com/user-attachments/assets/28ebdab6-50f4-40be-8c31-87e716440b24)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
