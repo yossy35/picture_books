@@ -29,8 +29,7 @@
 - フレームワーク：Ruby on Rails
 ​
 ## 使用素材
-著作権を考慮し、架空のデータを扱う予定です。<br>
-なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
-フリー素材として以下を使用
-  - いらすとや（https://www.irasutoya.com/）
-  - pixbay(https://pixabay.com/ja/)
+著作権を考慮し、架空のデータを扱っています。
+一部、フリー素材として以下のサイトを利用しています。
+  - いらすとや ( https://www.irasutoya.com/ )
+  - pixbay ( https://pixabay.com/ja/ )
